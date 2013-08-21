@@ -12,7 +12,7 @@
     <link href='http://fonts.googleapis.com/css?family=Michroma' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Actor' rel='stylesheet' type='text/css'>
 
-
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/uikit.min.js"></script>
     <script src="js/gts.js"></script>
@@ -26,11 +26,36 @@
 		</nav>
 
 		<div class="tm-section tm-section-color-1 tm-section-colored">
-			<div class="uk-container uk-container-center michroma">
+			<div class="uk-container uk-container-center">
 
-                  grows the spirit
-                <div><small>design industries</small>
+                <div class="uk-grid uk-grid-divider">
+                    <div class="uk-width-1-2 michroma">
+                        grows the spirit
+                        <div>
+                            <small>design industries</small>
+                        </div>
+                    </div>
+                    <div class="uk-width-1-2">
+                        <form class="uk-form">
+                            <fieldset>
+                                <legend>Contact</legend>
+                                <div class="uk-form-row">
+                                    <input type="text" id="gts-contact-email" size="30" placeholder="your email...">
+                                </div>
+                                <div class="uk-form-row">
+                                    <textarea cols="32" rows="5" id="gts-contact-message" placeholder="please add request..."></textarea>
+                                </div>
+                                <div class="uk-form-row">
+                                    <button class="uk-button" type="submit" id="gts-contact-send-button">Send</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <div id="gts-contact-thanks"></div>
+                    </div>
                 </div>
+
+
+
 
 			</div>
 		</div>
@@ -54,7 +79,32 @@
 			</div>
 		</div>
 
-
-
     </body>
+
+    <script>
+
+        var FireRef = new Firebase("https://gts-contacts.firebaseio.com/");
+
+
+        $(function() {
+
+            $("#gts-contact-send-button").on("click", function(e){
+                e.preventDefault();
+
+                var emailVal = $("#gts-contact-email").val();
+                var messageVal = $("#gts-contact-message").val();
+
+                FireRef.push({name: emailVal, text: messageVal});// push to FB
+
+                $("#gts-contact-email").val('');// clear form
+                $("#gts-contact-message").val('');
+
+                $("#gts-contact-thanks").html("Request received. Thank you").fadeOut(5000);// confirmation
+
+            })
+
+        });
+
+    </script>
+
 </html>
