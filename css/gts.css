@@ -25,7 +25,7 @@ html { overflow-y: scroll; }
 
 	.tm-middle,
 	.tm-section,
-	.tm-footer { padding: 90px 0; }
+	.tm-footer { padding: 120px 0; }
 
 }
 
@@ -34,7 +34,7 @@ html { overflow-y: scroll; }
 
 	.tm-middle,
 	.tm-section,
-	.tm-footer { padding: 120px 0; }
+	.tm-footer { padding: 80px 0; }
 
 }
 
@@ -157,7 +157,7 @@ html { overflow-y: scroll; }
  */
 
 .tm-navbar {
-	padding: 15px 0;
+	padding: 0px 0;
 	border: none;
 	background: #000;
 }
@@ -624,4 +624,45 @@ input.sp-input {
 
 .actor{
     font-family: 'Actor', sans-serif;
+}
+
+
+.branding-figure {
+    background-image:url('../img/gts-figure-lg.png');
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left:-66px;
+    top:-100px;
+    z-index: 1;
+    opacity:0.6;
+    filter:alpha(opacity=60);
+}
+
+.branding-text {
+    font-size: 3.2em;
+    z-index: 10001;
+    padding-top: 1.8em;
+    padding-left: 1em;
+    position: relative;
+}
+
+.branding-tag {
+    font-size: 1em;
+    padding-top: 1.2em;
+    padding-right: 2em;
+    text-align: right;
+    z-index: 10002;
+}
+
+.navbar-figure{
+
+    background-image:url('../img/gts-figure-sm.png');
+    height: 35px;
+    width: 35px;
+    opacity:0.01;
+    filter:alpha(opacity=01);
+    padding-top: 2px;
+
+
 }
