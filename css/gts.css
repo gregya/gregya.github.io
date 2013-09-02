@@ -656,12 +656,9 @@ input.sp-input {
 }
 
 .navbar-figure{
-
-    background-image:url('../img/gts-figure-sm.png');
     height: 35px;
     width: 35px;
     opacity:0.01;
-    filter:alpha(opacity=01);
     padding-top: 2px;
 
 
